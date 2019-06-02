@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from aioli.package.controller.schema import fields, Schema
+from aioli.controller.schema import fields, Schema
 
 
 class Visitor(Schema):

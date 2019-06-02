@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from aioli.package.service import BaseService
+from aioli.service import BaseService
 from aioli.exceptions import AioliException, NoMatchFound
 
 from .. import database

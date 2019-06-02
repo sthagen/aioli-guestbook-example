@@ -2,7 +2,7 @@
 
 from geolite2 import geolite2
 
-from aioli.package.service import BaseService
+from aioli.service import BaseService
 
 from .. import database
 
