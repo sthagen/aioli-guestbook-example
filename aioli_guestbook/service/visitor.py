@@ -1,17 +1,21 @@
 # -*- coding: utf-8 -*-
 
+import asyncio
+
 from geolite2 import geolite2
 
-from aioli.service import BaseService
+from aioli.service import Service
+from aioli_rdbms import DatabaseService
 
 from .. import database
 
 
-class VisitorService(BaseService):
-    __model__ = database.VisitorModel
+class VisitorService(Service):
+    geoip = geolite2.reader()
+    db = None
 
-    def __init__(self):
-        self.geoip = geolite2.reader()
+    async def on_pkg_ready(self):
+        self.db = self.absorb(DatabaseService).use_model(database.VisitorModel)
 
     async def get_many(self, **kwargs):
         return await self.db.get_many(**kwargs)
@@ -24,7 +28,8 @@ class VisitorService(BaseService):
             for loc in locations:
                 yield loc['names']['en']
 
-        geoip = await self.loop.run_in_executor(None, self.geoip.get, value)
+        loop = asyncio.get_running_loop()
+        geoip = await loop.run_in_executor(None, self.geoip.get, value)
 
         if value in ['127.0.0.1', '::1']:
             return 'Localhost', 'Localdomain'
