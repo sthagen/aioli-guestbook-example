@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from aioli.service import Service
+from aioli.service import BaseService
 from aioli.exceptions import AioliException, NoMatchFound
 
 from aioli_rdbms import DatabaseService
@@ -10,7 +10,7 @@ from .. import database
 from .visitor import VisitorService
 
 
-class VisitService(Service):
+class VisitService(BaseService):
     VISITS_MAX = 10
     visitor: VisitorService
     db = None

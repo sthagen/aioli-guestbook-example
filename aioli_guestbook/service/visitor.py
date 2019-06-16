@@ -4,13 +4,13 @@ import asyncio
 
 from geolite2 import geolite2
 
-from aioli.service import Service
+from aioli.service import BaseService
 from aioli_rdbms import DatabaseService
 
 from .. import database
 
 
-class VisitorService(Service):
+class VisitorService(BaseService):
     geoip = geolite2.reader()
     db = None
 
