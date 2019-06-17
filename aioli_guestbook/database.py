@@ -6,7 +6,7 @@ from aioli_rdbms import Model, fields
 
 
 class VisitorModel(Model):
-    __tablename__ = 'visitor'
+    __tablename__ = "visitor"
 
     id = fields.Integer(primary_key=True)
     name = fields.String(index=True, max_length=64)
@@ -15,7 +15,7 @@ class VisitorModel(Model):
 
 
 class VisitModel(Model):
-    __tablename__ = 'visit'
+    __tablename__ = "visit"
 
     id = fields.Integer(primary_key=True)
     visited_on = fields.DateTime(default=datetime.datetime.utcnow)

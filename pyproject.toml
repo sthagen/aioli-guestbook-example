@@ -1,13 +1,14 @@
 [tool.poetry]
-name = 'aioli-guestbook'
-version = '0.1.0'
-description = ''
-authors = ['Robert Wikman <rbw@vault13.org>']
+name = "aioli-guestbook"
+version = "0.1.0"
+description = ""
+authors = ["Robert Wikman <rbw@vault13.org>"]
 
 [tool.poetry.dependencies]
-python = '^3.6'
+python = "^3.6"
+maxminddb-geolite2 = "^1.4.1"
 aioli = { path = "../aioli" }
 
 [build-system]
-requires = ['poetry>=0.12']
-build-backend = 'poetry.masonry.api'
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
