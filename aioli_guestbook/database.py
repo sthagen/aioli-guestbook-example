@@ -2,7 +2,7 @@
 
 import datetime
 
-from aioli_rdbms import Model, fields
+from aioli_rdbms.model import Model, fields
 
 
 class VisitorModel(Model):

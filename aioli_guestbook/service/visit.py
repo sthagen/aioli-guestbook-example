@@ -11,13 +11,12 @@ from .. import database
 
 
 class VisitService(BaseService):
-    VISITS_MAX = 10
     visitor: VisitorService
     db = None
 
-    async def on_unit_ready(self):
-        self.db = self.attach_service(DatabaseService).use_model(database.VisitModel)
-        self.visitor = self.connect_service(VisitorService)
+    async def on_startup(self):
+        self.db = self.integrate(DatabaseService).use_model(database.VisitModel)
+        self.visitor = self.connect(VisitorService)
 
     async def get_authored(self, visit_id, remote_addr):
         visit = await self.db.get_one(pk=visit_id)
@@ -34,13 +33,14 @@ class VisitService(BaseService):
         visit = await self.get_authored(visit_id, remote_addr)
         return await self.db.update(visit, payload)
 
-    async def create(self, remote_addr, body):
-        visit = body
+    async def create(self, remote_addr, visit):
         visit_count = await self.db.count(visitor__ip_addr__iexact=remote_addr)
-        if visit_count >= self.VISITS_MAX:
+        visits_max = self.config["visits_max"]
+
+        if visit_count >= visits_max:
             raise AioliException(
                 status=400,
-                message=f"Max {self.VISITS_MAX} entries per IP. Try deleting some old ones.",
+                message=f"Max {visits_max} entries per IP. Try deleting some old ones.",
             )
 
         async with self.db.manager.database.transaction():
@@ -56,7 +56,7 @@ class VisitService(BaseService):
                 visit["visitor"] = await self.visitor.db.get_one(**visitor)
             except NoMatchFound:
                 visit["visitor"] = await self.visitor.db.create(**visitor)
-                self.unit.log.info(f"New visitor: {visit['visitor'].name}")
+                self.package.log.info(f"New visitor: {visit['visitor'].name}")
 
             visit_new = await self.db.create(**visit)
             self.log.info(f"New visit: {visit_new.id}")

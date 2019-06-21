@@ -15,10 +15,10 @@ from .schema import Visit, Visitor, VisitNew, VisitPath
 
 
 class HttpController(BaseHttpController):
-    def __init__(self, unit):
-        super(HttpController, self).__init__(unit)
-        self.visit = VisitService(unit)
-        self.visitor = VisitorService(unit)
+    def __init__(self, pkg):
+        super(HttpController, self).__init__(pkg)
+        self.visit = VisitService(pkg)
+        self.visitor = VisitorService(pkg)
 
     async def on_request(self, request):
         self.log.debug(f"Request received: {request}")

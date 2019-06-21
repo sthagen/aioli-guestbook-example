@@ -14,8 +14,8 @@ class VisitorService(BaseService):
     geoip = geolite2.reader()
     db = None
 
-    async def on_unit_ready(self):
-        self.db = self.attach_service(DatabaseService).use_model(database.VisitorModel)
+    async def on_startup(self):
+        self.db = self.integrate(DatabaseService).use_model(database.VisitorModel)
 
     async def ipaddr_location(self, value):
         def in_english(*locations):

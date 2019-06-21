@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from aioli import Unit
+from aioli import Package
+
 from .service import VisitService, VisitorService
 from .controller import HttpController
+from .config import ConfigSchema
 
 
-export = Unit(
+export = Package(
     controllers=[HttpController],
     services=[VisitService, VisitorService],
-    name="aioli-guestbook",
+    config=ConfigSchema,
+    name="aioli_guestbook",
     version="0.1.0",
-    description="Example guestbook Unit",
+    description="Example guestbook Package",
 )
