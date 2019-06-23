@@ -5,19 +5,10 @@ The idea with this example is to show how a CRUD-type RESTful HTTP API package
 *could* be built with the Aioli Framework.
 
 
-Installing
+Documentation
 ---
 
-```bash
-
-$ pip3 install aioli_guestbook
-
-```
-
-Usage
----
-
-Check out the [Package Documentation](https://aioli-guestbook.rtfd.io) for details about the
+Check out the [Package Documentation](https://aioli-guestbook.rtfd.io) for usage and info about the
 HTTP and Service APIs.
 
 Author
