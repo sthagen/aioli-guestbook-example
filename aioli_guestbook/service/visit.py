@@ -35,7 +35,7 @@ class VisitService(BaseService):
 
     async def create(self, remote_addr, visit):
         visit_count = await self.db.count(visitor__ip_addr__iexact=remote_addr)
-        visits_max = self.config["visits_max"]
+        visits_max = self.conf["visits_max"]
 
         if visit_count >= visits_max:
             raise AioliException(
@@ -56,7 +56,7 @@ class VisitService(BaseService):
                 visit["visitor"] = await self.visitor.db.get_one(**visitor)
             except NoMatchFound:
                 visit["visitor"] = await self.visitor.db.create(**visitor)
-                self.package.log.info(f"New visitor: {visit['visitor'].name}")
+                self.pkg.log.info(f"New visitor: {visit['visitor'].name}")
 
             visit_new = await self.db.create(**visit)
             self.log.info(f"New visit: {visit_new.id}")

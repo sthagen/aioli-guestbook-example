@@ -6,6 +6,7 @@ authors = ["Robert Wikman <rbw@vault13.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
+aioli = "^0.3.0"
 aioli_rdbms = "^0.1.0"
 maxminddb-geolite2 = "^1.4.1"
 
