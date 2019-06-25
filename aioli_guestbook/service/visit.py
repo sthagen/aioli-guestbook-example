@@ -35,7 +35,7 @@ class VisitService(BaseService):
 
     async def create(self, remote_addr, visit):
         visit_count = await self.db.count(visitor__ip_addr__iexact=remote_addr)
-        visits_max = self.conf["visits_max"]
+        visits_max = self.config["visits_max"]
 
         if visit_count >= visits_max:
             raise AioliException(
