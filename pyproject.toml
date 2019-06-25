@@ -3,10 +3,11 @@ name = "aioli-guestbook"
 version = "0.1.0"
 description = ""
 authors = ["Robert Wikman <rbw@vault13.org>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-aioli = "^0.3.0"
+aioli = { git = "https://github.com/aioli-framework/aioli.git", branch = "devel" }
 aioli_rdbms = "^0.1.0"
 maxminddb-geolite2 = "^1.4.1"
 
