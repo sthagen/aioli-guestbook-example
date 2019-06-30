@@ -1,0 +1,65 @@
+pre {
+    background-color: #f6f7e2;
+    border: 1px solid #a8bd0b;
+}
+
+body {
+    overflow-y: scroll !important;
+}
+
+div.viewcode-block:target {
+    background-color: transparent;
+}
+
+div.body {
+    max-width: 1024px !important;
+}
+
+div.body h1 {
+    font-size: 25px !important;
+}
+
+.caption {
+    /*font-style: italic;*/
+}
+
+h1.logo {
+    font-size: 20px;
+}
+
+img.logo {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.sphinxsidebarwrapper {
+    padding: 0 !important;
+    font-size: 17px;
+}
+
+.sphinxsidebarwrapper > p {
+    font-style: italic;
+    font-size: 18px;
+}
+
+.sphinxsidebarwrapper .toctree-l1 {
+    padding-left: 5px !important;
+}
+
+.sphinxsidebarwrapper > h3 {
+    display: none;
+}
+
+.admonition-title {
+    display: none !important;
+}
+
+.ethical-alabaster {
+    display: none;
+}
+
+.note {
+    background-color: #fffeeb !important;
+    padding: 0 30px 10px 30px !important;
+}
+

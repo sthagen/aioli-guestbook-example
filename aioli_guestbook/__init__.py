@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from aioli import Package
 
 from .service import VisitService, VisitorService

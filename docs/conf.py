@@ -1,26 +1,26 @@
 import sys
 import os
+import aioli_sphinx_theme
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, os.path.abspath(".."))
 
 import aioli_guestbook
 
-
 project = "Aioli Guestbook"
 copyright = "2019 Robert Wikman"
 author = u"Robert Wikman <rbw@vault13.org>"
 
-version = aioli_guestbook.__version__
+version = aioli_guestbook.export.version
 
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
     "sphinx.ext.napoleon",
+    "sphinxcontrib.httpdomain"
 ]
 
-# source_suffix = [".rst", ".md"]
 source_suffix = ".rst"
 
 # The master toctree document.
@@ -36,6 +36,7 @@ html_context = {
     "project_pretty_name": "Aioli Guestbook",
 }
 
+html_favicon = "_static/favicon.png"
 html_theme = "alabaster"
 html_sidebars = {
     "**": [
@@ -44,11 +45,10 @@ html_sidebars = {
 }
 
 html_theme_options = {
-    "sidebar_width": "190px",
+    "sidebar_width": "170px",
     "sidebar_collapse": True,
     "fixed_sidebar": True,
     "logo_name": None,
-    "logo": "logo.png",
     "font_family": "arial",
     "github_repo": "aioli-framework/aioli-guestbook-example",
     "github_banner": True,
@@ -83,7 +83,6 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, "aioli_guestbook", "Aioli Guestbook Documentation",
-     author, "aioli_guestbook", "Aioli Guestbook Example",
-     "Miscellaneous"),
+    (master_doc, "aioli_guestbook", "Aioli Guestbook Documentation", author,
+     "aioli_guestbook", "Aioli Guestbook Example", "Miscellaneous"),
 ]

@@ -12,6 +12,16 @@ aioli_rdbms = { git = "https://github.com/aioli-framework/aioli-rdbms.git", bran
 toml = "^0.10.0"
 maxminddb-geolite2 = "^2018.703"
 
+[tool.poetry.dev-dependencies]
+twine = "^1.13"
+sphinx = "^2.1.1"
+sphinxcontrib-httpdomain = "^1.7.0"
+pytest = "^4.4.0"
+pytest-cov = "^2.7.1"
+autoflake = "^1.3"
+codecov = "^2.0.15"
+black = { version = "^19.3b0", allows-prereleases = true }
+
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"

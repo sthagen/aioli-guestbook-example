@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import datetime
 
 from aioli_rdbms.model import Model, fields

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from aioli.config import PackageConfigSchema, fields
 
 

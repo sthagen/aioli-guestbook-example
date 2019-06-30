@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from aioli.controller import (
     BaseHttpController,
     ParamsSchema,
@@ -11,7 +9,7 @@ from aioli.controller import (
 )
 
 from .service import VisitService, VisitorService
-from .schema import Visit, Visitor, VisitNew, VisitPath
+from .schema import Visit, Visitor, VisitorPath, VisitNew, VisitPath
 
 
 class HttpController(BaseHttpController):
@@ -60,12 +58,13 @@ class HttpController(BaseHttpController):
         return await self.visitor.db.get_many(**query)
 
     @route("/visitors/{visitor_id}", Method.GET, "Visitor details")
+    @takes(path=VisitorPath)
     @returns(Visitor)
     async def visitor_get(self, visitor_id):
         return await self.visitor.db.get_one(visitor_id)
 
     @route("/visitors/{visitor_id}/visits", Method.GET, "Visits by visitor")
-    @takes(query=ParamsSchema)
+    @takes(path=VisitorPath, query=ParamsSchema)
     @returns(Visit)
     async def visitor_entries(self, visitor_id, query):
         query.update({"visitor": visitor_id})

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from aioli.controller.schema import fields, Schema
 
 
@@ -12,6 +10,9 @@ class Visitor(Schema):
 
 class VisitPath(Schema):
     visit_id = fields.Integer()
+
+
+class VisitorPath(Schema):
     visitor_id = fields.Integer()
 
 
