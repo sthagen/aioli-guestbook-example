@@ -1,12 +1,4 @@
-from aioli.controller import (
-    BaseHttpController,
-    ParamsSchema,
-    RequestProp,
-    Method,
-    route,
-    takes,
-    returns,
-)
+from aioli.controller import BaseHttpController, RequestProp, Method, schemas, route, takes, returns
 
 from .service import VisitService, VisitorService
 from .schema import Visit, Visitor, VisitorPath, VisitNew, VisitPath
@@ -22,7 +14,7 @@ class HttpController(BaseHttpController):
         self.log.debug(f"Request received: {request}")
 
     @route("/", Method.GET, "List of entries")
-    @takes(query=ParamsSchema)
+    @takes(query=schemas.HttpParams)
     @returns(Visit, many=True)
     async def visits_get(self, query):
         return await self.visit.db.get_many(**query)
@@ -52,7 +44,7 @@ class HttpController(BaseHttpController):
         await self.visit.delete(visit_id, client_addr)
 
     @route("/visitors", Method.GET, "List of visitors")
-    @takes(query=ParamsSchema)
+    @takes(query=schemas.HttpParams)
     @returns(Visitor, many=True)
     async def visitors_get(self, query):
         return await self.visitor.db.get_many(**query)
@@ -64,7 +56,7 @@ class HttpController(BaseHttpController):
         return await self.visitor.db.get_one(visitor_id)
 
     @route("/visitors/{visitor_id}/visits", Method.GET, "Visits by visitor")
-    @takes(path=VisitorPath, query=ParamsSchema)
+    @takes(path=VisitorPath, query=schemas.HttpParams)
     @returns(Visit)
     async def visitor_entries(self, visitor_id, query):
         query.update({"visitor": visitor_id})
