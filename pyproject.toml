@@ -1,14 +1,15 @@
 [tool.poetry]
 name = "aioli_guestbook"
-version = "0.1.2"
+version = "0.1.3"
 description = "Comprehensive RESTful HTTP API built on top of the Aioli Framework"
 authors = ["Robert Wikman <rbw@vault13.org>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/aioli-framework/aioli-guestbook-example"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-aioli = "^0.3.0"
+aioli = "^0.3.1"
 aioli_rdbms = "^0.1.2"
 toml = "^0.10.0"
 maxminddb-geolite2 = "^2018.703"
