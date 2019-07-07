@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.6"
 aioli = "^0.3.0"
-aioli_rdbms = { git = "https://github.com/aioli-framework/aioli-rdbms.git", branch = "master" }
+aioli_rdbms = "^0.1.2"
 toml = "^0.10.0"
 maxminddb-geolite2 = "^2018.703"
 
