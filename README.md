@@ -1,8 +1,7 @@
 aioli-guestbook: RESTful HTTP API Example
 ---
 
-The idea with this example is to show how a CRUD-type RESTful HTTP API package
-*could* be built with the Aioli Framework.
+The idea with this example is to show how a CRUD-type RESTful HTTP API package can be built with the Aioli Framework.
 
 
 Documentation
