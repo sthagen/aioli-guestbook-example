@@ -1,2 +1,3 @@
 aioli
 aioli_rdbms
+aioli_sphinx_theme
