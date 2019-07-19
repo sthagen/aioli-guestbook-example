@@ -16,12 +16,12 @@ built using the `Aioli Framework <https://github.com/aioli-framework/aioli>`_.
 
 .. toctree::
    :hidden:
-   :caption: Web APIs
+   :caption: Service APIs
 
-   webapis
+   services
 
 .. toctree::
    :hidden:
-   :caption: Services
+   :caption: Web APIs
 
-   services
+   webapis

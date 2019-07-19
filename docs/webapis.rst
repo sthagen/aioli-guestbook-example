@@ -1,8 +1,10 @@
-Restful HTTP
-============
+HTTP
+====
+
+Aioli Sphinx-OpenAPI is a work in progress.
 
 
 WebSocket
 =========
 
-No *documented* WebSocket API for this project.
+Aioli Sphinx-OpenAPI is a work in progress.

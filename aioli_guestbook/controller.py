@@ -17,19 +17,19 @@ class HttpController(BaseHttpController):
     @takes(query=schemas.HttpParams)
     @returns(Visit, many=True)
     async def visits_get(self, query):
-        return await self.visit.db.get_many(**query)
+        return await self.visit.get_many(**query)
 
     @route("/", Method.POST, "Create entry")
     @takes(body=VisitNew, props=[RequestProp.client_addr])
     @returns(Visit, status=201)
     async def visit_add(self, client_addr, body):
-        return await self.visit.create(client_addr, body)
+        return await self.visit.create(body, client_addr)
 
     @route("/{visit_id}", Method.GET, "Visit details")
     @takes(path=VisitPath)
     @returns(Visit)
     async def visit_get(self, visit_id):
-        return await self.visit.db.get_one(pk=visit_id)
+        return await self.visit.get_one(visit_id)
 
     @route("/{visit_id}", Method.PUT, "Update entry")
     @takes(body=Visit, path=VisitPath, props=[RequestProp.client_addr])
@@ -47,17 +47,17 @@ class HttpController(BaseHttpController):
     @takes(query=schemas.HttpParams)
     @returns(Visitor, many=True)
     async def visitors_get(self, query):
-        return await self.visitor.db.get_many(**query)
+        return await self.visitor.get_many(**query)
 
     @route("/visitors/{visitor_id}", Method.GET, "Visitor details")
     @takes(path=VisitorPath)
     @returns(Visitor)
     async def visitor_get(self, visitor_id):
-        return await self.visitor.db.get_one(visitor_id)
+        return await self.visitor.get_one(visitor_id)
 
     @route("/visitors/{visitor_id}/visits", Method.GET, "Visits by visitor")
     @takes(path=VisitorPath, query=schemas.HttpParams)
     @returns(Visit)
     async def visitor_entries(self, visitor_id, query):
         query.update({"visitor": visitor_id})
-        return await self.visit.db.get_many(**query)
+        return await self.visit.get_many(**query)
