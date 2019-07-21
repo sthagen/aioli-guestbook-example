@@ -1,3 +1,2 @@
 aioli
 aioli_rdbms
-aioli_sphinx_theme>=0.7.13.3

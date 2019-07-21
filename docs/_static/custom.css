@@ -50,14 +50,6 @@ img.logo {
     display: none;
 }
 
-.admonition-title {
-    display: none !important;
-}
-
-.ethical-alabaster {
-    display: none;
-}
-
 .note {
     background-color: #fffeeb !important;
     padding: 0 30px 10px 30px !important;
