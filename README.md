@@ -7,7 +7,7 @@ The idea with this example is to show how a CRUD-type RESTful HTTP API package c
 Documentation
 ---
 
-Check out the [Package Documentation](https://aioli-guestbook.rtfd.io) for usage and info about the
+Check out the [Package Documentation](https://aioli-guestbook-example.readthedocs.io) for usage and info about the
 HTTP and Service APIs.
 
 Author
