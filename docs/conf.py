@@ -1,6 +1,5 @@
 import sys
 import os
-import aioli_sphinx_theme
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, os.path.abspath(".."))
